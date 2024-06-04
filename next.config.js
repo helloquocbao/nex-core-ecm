@@ -1,40 +1,25 @@
-/**
- * @type {import('next').NextConfig}
- */
+/** @type {import('next').NextConfig} */
 
 const nextConfig = {
   reactStrictMode: false,
   experimental: {
-    typedRoutes: true,
+    appDir: true,
+    typedRoutes: false,
+    scrollRestoration: true,
+    serverActions: true,
   },
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "images.pexels.com",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "a0.muscache.com",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "www.gstatic.com",
-        port: "",
-        pathname: "/**",
-      },
+    domains: [
+      "storage.googleapis.com",
+      "coinpayments.net",
+      "images.pexels.com",
     ],
+    minimumCacheTTL: 1500000,
   },
 };
+const withNextIntl = require("next-intl/plugin")(
+  // This is the default (also the `src` folder is supported out of the box)
+  "./i18n.ts"
+);
 
-module.exports = nextConfig;
+module.exports = withNextIntl(nextConfig);

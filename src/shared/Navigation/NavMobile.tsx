@@ -10,7 +10,7 @@ import ButtonPrimary from "@/shared/ButtonPrimary";
 import SocialsList from "@/shared/SocialsList";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
-import LangDropdown from "@/app/(client-page)/(client-components)/(Header)/LangDropdown";
+import LangDropdown from "@/app/[locale]/(client-page)/(client-components)/(Header)/LangDropdown";
 
 export interface NavMobileProps {
   data?: NavItemType[];
